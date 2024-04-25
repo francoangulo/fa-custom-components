@@ -14,13 +14,17 @@ interface Props {
    */
   allCaps?: boolean;
   /**
-   * Color of the button
+   * Predefined color of the button
    */
   color?: "text-primary" | "text-secondary" | "text-tertiary";
   /**
-   * Color of the text
+   * Custom color of the text
    */
   fontColor?: string;
+  /**
+   * Background color of the button
+   */
+  backgroundColor?: string;
 }
 
 export const MyLabel = ({
@@ -29,6 +33,7 @@ export const MyLabel = ({
   allCaps = false,
   color = "text-primary",
   fontColor,
+  backgroundColor = "transparent",
 }: Props) => {
   return (
     <span
@@ -36,6 +41,7 @@ export const MyLabel = ({
       style={{
         color: fontColor,
         ...(allCaps && { textTransform: "uppercase" }),
+        backgroundColor,
       }}
     >
       {label}
